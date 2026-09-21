@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<title>Kuching Blastwork Shafiy's</title>
+<style>
+:root{--bg:#0b0b0b;--card:#171717;--orange:#ff6a00;--red:#d71920;--text:#f5f5f5;--muted:#aaa}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#080808,#17100d);color:var(--text);font-family:Arial,sans-serif}
+header{padding:24px 18px 18px;background:linear-gradient(135deg,#111,#241006);border-bottom:1px solid #333}
+.logo{font-weight:900;font-size:25px;letter-spacing:.5px}.logo span{color:var(--orange)}
+.sub{color:#bbb;margin-top:5px;font-size:13px}
+nav{display:flex;gap:8px;overflow:auto;padding:12px;background:#101010;position:sticky;top:0;z-index:5}
+nav button{border:0;background:#242424;color:#ddd;border-radius:20px;padding:9px 14px;white-space:nowrap}
+nav button.active{background:linear-gradient(90deg,var(--red),var(--orange));color:#fff}
+main{max-width:700px;margin:auto;padding:16px}.hero{padding:22px;border-radius:20px;background:linear-gradient(135deg,#20110a,#161616);border:1px solid #3b2518;margin-bottom:15px}
+h1{font-size:28px;margin:0 0 8px}.hero p{color:#ccc;line-height:1.5}
+.btn{display:inline-block;border:0;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer;text-decoration:none;color:white;background:linear-gradient(90deg,var(--red),var(--orange));margin:4px 4px 0 0}
+.btn.dark{background:#292929}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:var(--card);border:1px solid #2b2b2b;border-radius:16px;padding:16px}.card h3{margin:0 0 7px}.price{font-weight:800;color:#ff9a55}.muted{color:var(--muted);font-size:13px;line-height:1.45}
+section{display:none}section.active{display:block}.list{display:flex;flex-direction:column;gap:10px}
+label{display:block;color:#ccc;font-size:13px;margin:10px 0 5px}input,select,textarea{width:100%;background:#101010;color:white;border:1px solid #3a3a3a;border-radius:10px;padding:12px}textarea{min-height:90px}
+.total{font-size:20px;font-weight:800;margin:15px 0}.notice{padding:12px;border-radius:12px;background:#24140c;color:#ddd;font-size:13px;margin-top:10px}
+footer{text-align:center;color:#888;font-size:12px;padding:25px 10px}
+@media(max-width:480px){.grid{grid-template-columns:1fr 1fr}h1{font-size:25px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">KUCHING <span>BLASTWORK</span> SHAFIY'S</div>
+  <div class="sub">Sandblasting • Wet Blasting • Powder Coating • Repaint</div>
+</header>
+
+<nav>
+<button class="active" onclick="showTab('home',this)">Utama</button>
+<button onclick="showTab('services',this)">Servis</button>
+<button onclick="showTab('quote',this)">Anggaran</button>
+<button onclick="showTab('contact',this)">Hubungi</button>
+</nav>
+
+<main>
+<section id="home" class="active">
+<div class="hero">
+<h1>BLAST IT. RESTORE IT. MAKE IT NEW.</h1>
+<p>Servis pembersihan karat, sandblasting, wet blasting dan kemasan semula untuk komponen motosikal, besi dan pelbagai barangan logam.</p>
+<a class="btn" href="https://wa.me/60102923012?text=Salam%20Kuching%20Blastwork%20Shafiy%27s%2C%20saya%20nak%20bertanya%20tentang%20servis." target="_blank">WhatsApp Kami</a>
+<button class="btn dark" onclick="showTab('quote',document.querySelectorAll('nav button')[2])">Buat Anggaran</button>
+</div>
+<div class="grid">
+<div class="card"><h3>Sandblasting</h3><div class="muted">Buang karat, cat lama & kotoran pada permukaan logam.</div></div>
+<div class="card"><h3>Wet Blasting</h3><div class="muted">Kemasan lebih halus untuk komponen yang sesuai.</div></div>
+<div class="card"><h3>Powder Coating</h3><div class="muted">Kemasan tahan lasak dan kemas untuk pelbagai komponen.</div></div>
+<div class="card"><h3>Repaint</h3><div class="muted">Pilihan kemasan semula selepas proses pembersihan.</div></div>
+</div>
+</section>
+
+<section id="services">
+<h2>Servis Kami</h2>
+<div class="list">
+<div class="card"><h3>🛠️ Sandblasting</h3><p class="muted">Untuk besi, rim, frame, bracket, swing arm dan komponen yang sesuai.</p></div>
+<div class="card"><h3>💦 Wet Blasting</h3><p class="muted">Proses blasting menggunakan media + air untuk hasil permukaan tertentu.</p></div>
+<div class="card"><h3>🎨 Powder Coating</h3><p class="muted">Kemasan powder coating mengikut pilihan warna dan kesesuaian komponen.</p></div>
+<div class="card"><h3>✨ Repaint</h3><p class="muted">Kemasan semula selepas kerja preparation/blasting.</p></div>
+</div>
+<div class="notice">Harga sebenar bergantung pada saiz, jenis material, keadaan permukaan, tahap karat dan jenis kemasan.</div>
+</section>
+
+<section id="quote">
+<h2>Anggaran Harga</h2>
+<label>Jenis servis</label>
+<select id="service">
+<option value="0">Pilih servis</option><option value="80">Sandblasting</option><option value="100">Wet Blasting</option><option value="120">Powder Coating</option><option value="100">Repaint</option>
+</select>
+<label>Saiz / tahap kerja</label>
+<select id="size">
+<option value="1">Kecil</option><option value="1.5">Sederhana</option><option value="2.2">Besar</option>
+</select>
+<label>Keadaan permukaan</label>
+<select id="condition">
+<option value="1">Ringan</option><option value="1.3">Karat/cat sederhana</option><option value="1.7">Karat tebal / kerja berat</option>
+</select>
+<button class="btn" onclick="calc()">Kira Anggaran</button>
+<div class="total" id="total">Anggaran: RM0</div>
+<div class="notice">Ini hanya kalkulator anggaran untuk rujukan. Harga akhir perlu disahkan selepas pemeriksaan barang.</div>
+</section>
+
+<section id="contact">
+<h2>Hubungi Kuching Blastwork Shafiy's</h2>
+<div class="card">
+<p><b>WhatsApp:</b> 010-292 3012</p>
+<p><b>Lokasi:</b> Kuarters TUDM Batu 10 1/2, Kuching, Sarawak</p>
+<a class="btn" href="https://wa.me/60102923012" target="_blank">Chat WhatsApp</a>
+</div>
+<div class="card" style="margin-top:12px">
+<h3>Hantar pertanyaan</h3>
+<label>Nama</label><input id="name" placeholder="Nama anda">
+<label>Barang / komponen</label><input id="item" placeholder="Contoh: rim motor, frame, swing arm">
+<label>Nota</label><textarea id="note" placeholder="Terangkan keadaan barang atau kerja yang diperlukan"></textarea>
+<button class="btn" onclick="sendWA()">Hantar ke WhatsApp</button>
+</div>
+</section>
+</main>
+<footer>© Kuching Blastwork Shafiy's • Sandblasting & Surface Finishing</footer>
+
+<script>
+function showTab(id,btn){
+ document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function calc(){
+ let s=+document.getElementById('service').value, z=+document.getElementById('size').value, c=+document.getElementById('condition').value;
+ let total=s*z*c;
+ document.getElementById('total').textContent='Anggaran: RM'+(total?Math.round(total):0);
+}
+function sendWA(){
+ let n=document.getElementById('name').value||'-', i=document.getElementById('item').value||'-', note=document.getElementById('note').value||'-';
+ let msg=`Salam Kuching Blastwork Shafiy's.\\nNama: ${n}\\nBarang: ${i}\\nNota: ${note}`;
+ window.open('https://wa.me/60102923012?text='+encodeURIComponent(msg),'_blank');
+}
+</script>
+</body>
+</html>
